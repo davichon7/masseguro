@@ -41,7 +41,7 @@ function CustomToolbar({ selectedRowIds, fetchdata }) {
   return (
     <GridToolbarContainer>
       <GridToolbar />
-      {selectedRowIds && selectedRowIds.length > 0 && <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<DeleteOutline />} onClick={handleOpenDelete}>Delete</Button>}
+      {selectedRowIds && selectedRowIds.length > 0 && <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<DeleteOutline />} onClick={handleOpenDelete}>Borrar</Button>}
       <DeleteModel opendelete={opendelete} handleClosedelete={handleCloseDelete} deletedata={deleteManyLead} id={selectedRowIds} />
     </GridToolbarContainer>
   );
@@ -73,7 +73,7 @@ const Lead = () => {
   const columns = [
     {
       field: "firstName",
-      headerName: "Frist Name",
+      headerName: "Nombres",
       flex: 1,
       cellClassName: "name-column--cell name-column--cell--capitalize",
       renderCell: (params) => {
@@ -90,28 +90,28 @@ const Lead = () => {
     },
     {
       field: "lastName",
-      headerName: "Last Name",
+      headerName: "Apellidos",
       flex: 1,
       cellClassName:"name-column--cell--capitalize",
     },
     {
       field: "gender",
-      headerName: "Gender",
+      headerName: "Género",
       flex: 1,
     },
     {
       field: "phoneNumber",
-      headerName: "Phone Number",
+      headerName: "Teléfono",
       flex: 1,
     },
     {
       field: "emailAddress",
-      headerName: "Email Address",
+      headerName: "Correo Electrónico",
       flex: 1,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "Acción",
       flex: 1,
       // eslint-disable-next-line arrow-body-style
       renderCell: (params) => {
@@ -154,11 +154,11 @@ const Lead = () => {
       <Container>
         <Stack direction="row" alignItems="center" mb={5} justifyContent={"space-between"}>
           <Typography variant="h4" >
-            Lead
+            Clientes Potenciales
           </Typography>
           <Stack direction="row" alignItems="center" justifyContent={"flex-end"} spacing={2}>
             <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />} onClick={handleOpenAdd}>
-              New Lead
+              Nuevo cliente
             </Button>
           </Stack>
         </Stack>

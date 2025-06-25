@@ -153,12 +153,12 @@ const View = () => {
                             policyData?.contact_id ?
                                 <Header
                                     title={`${policyData?.contact_id?.firstName} ${policyData?.contact_id?.lastName}`}
-                                    subtitle="Policy Details"
+                                    subtitle="Detalles de la póliza"
                                 />
                                 :
                                 <Header
                                     title={policyData?.insuredPersonName}
-                                    subtitle="Policy Details"
+                                    subtitle="Detalles de la póliza"
                                 />
                         }
                         <Stack direction="row" alignItems="center" justifyContent={"flex-end"} spacing={2}>
@@ -176,9 +176,9 @@ const View = () => {
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: "0px" }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label="OVERVIEW" {...a11yProps(0)} />
-                            <Tab label="MORE INFORMATION" {...a11yProps(1)} />
-                            <Tab label="OTHER" {...a11yProps(2)} />
+                            <Tab label="GENERAL" {...a11yProps(0)} />
+                            <Tab label="MÁS INFORMACIÓN" {...a11yProps(1)} />
+                            <Tab label="OTRO" {...a11yProps(2)} />
                         </Tabs>
                     </Box>
                     <CustomTabPanel value={value} index={0}>

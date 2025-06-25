@@ -79,7 +79,7 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back 
+          Hola, Bienvenido 
         </Typography>
 
         <Grid container spacing={3}>
@@ -101,20 +101,20 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
-              title="Website Visits"
+              title="Website Visitas"
               subheader="(+43%) than last year"
               chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
+                '01/01/2025',
+                '02/02/2025',
+                '03/03/2025',
+                '04/04/2025',
+                '05/05/2025',
+                '06/06/2025',
+                '07/07/2025',
+                '08/08/2025',
+                '09/09/2025',
+                '10/10/2025',
+                '11/11/2025',
               ]}
               chartData={[
                 {

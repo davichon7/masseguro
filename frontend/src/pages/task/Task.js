@@ -87,7 +87,7 @@ const Task = () => {
   const columns = [
     {
       field: "subject",
-      headerName: "Subject",
+      headerName: "Asunto",
       flex: 1,
       cellClassName: "name-column--cell name-column--cell--capitalize",
       renderCell: (params) => {
@@ -104,12 +104,12 @@ const Task = () => {
     },
     {
       field: "status",
-      headerName: "Status",
+      headerName: "Estado",
       flex: 1,
     },
     {
       field: "startDate",
-      headerName: "Start Date",
+      headerName: "Fecha inicio",
       flex: 1,
       valueFormatter: (params) => {
         const date = new Date(params.value);
@@ -118,7 +118,7 @@ const Task = () => {
     },
     {
       field: "endDate",
-      headerName: "End Date",
+      headerName: "Fecha término",
       flex: 1,
       valueFormatter: (params) => {
         const date = new Date(params.value);
@@ -127,12 +127,12 @@ const Task = () => {
     },
     {
       field: "priority",
-      headerName: "Priority",
+      headerName: "Prioridad",
       flex: 1,
     },
     {
       field: allTask.relatedTo === "Lead" ? "lead_id" : "contact_id",
-      headerName: "Related To",
+      headerName: "Cliente",
       cellClassName: "name-column--cell name-column--cell--capitalize",
       flex: 1,
       renderCell: (params) => {
@@ -149,7 +149,7 @@ const Task = () => {
     },
     {
       field: "createdBy",
-      headerName: "Assigned User",
+      headerName: "Usuario",
       cellClassName: "name-column--cell name-column--cell--capitalize",
       flex: 1,
       renderCell: (params) => {
@@ -187,10 +187,10 @@ const Task = () => {
         <TableStyle>
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
             <Typography variant="h4">
-              Tasks List
+              Lista de tareas
             </Typography>
             <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />} onClick={handleOpenTask}>
-              New Task
+              Nueva tarea
             </Button>
           </Stack>
           <Box width="100%" >

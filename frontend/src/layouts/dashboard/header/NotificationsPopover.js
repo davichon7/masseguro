@@ -126,7 +126,7 @@ export default function NotificationsPopover() {
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">Notifications</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              You have {totalUnRead} unread messages
+              Tienes {totalUnRead} mensjes sin leer
             </Typography>
           </Box>
 
@@ -173,7 +173,7 @@ export default function NotificationsPopover() {
 
         <Box sx={{ p: 1 }}>
           <Button fullWidth disableRipple>
-            View All
+            Ver todo
           </Button>
         </Box>
       </Popover>

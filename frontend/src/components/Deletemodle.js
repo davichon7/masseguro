@@ -67,16 +67,16 @@ export default function CustomizedDialogs(props) {
           id="customized-dialog-title"
           onClose={handleClosedelete}
         >
-          Delete
+          Borrar
         </BootstrapDeleteModel>
         <DialogContent dividers>
           <Typography gutterBottom p={3}>
-            Are you sure you want to delete this item?
+            ¿Está seguro de que desea eliminar esta póliza?
           </Typography>
         </DialogContent>
         <DialogActions>
           <Stack direction="row" spacing={2}>
-            <Button variant="contained" color="error" onClick={Delete}>Yes</Button>
+            <Button variant="contained" color="error" onClick={Delete}>Sí</Button>
             <Button variant="contained" onClick={handleClosedelete}>No</Button>
           </Stack>
         </DialogActions>

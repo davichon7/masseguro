@@ -69,7 +69,7 @@ const Policy = () => {
   const columns = [
     {
       field: "policyNumber",
-      headerName: "Policy Number",
+      headerName: "Número de póliza",
       flex: 1,
       cellClassName: "name-column--cell",
       renderCell: (params) => {
@@ -86,12 +86,12 @@ const Policy = () => {
     },
     {
       field: "policyType",
-      headerName: "Policy Type",
+      headerName: "Tipo de póliza",
       flex: 1,
     },
     {
       field: "policyStartDate",
-      headerName: "Policy start date",
+      headerName: "Inicio",
       flex: 1,
       valueFormatter: (params) => {
         const date = new Date(params.value);
@@ -100,7 +100,7 @@ const Policy = () => {
     },
     {
       field: "policyEndDate",
-      headerName: "Policy end date",
+      headerName: "Vencimiento",
       flex: 1,
       valueFormatter: (params) => {
         const date = new Date(params.value);
@@ -109,7 +109,7 @@ const Policy = () => {
     },
     {
       field: "policyStatus",
-      headerName: "Policy status",
+      headerName: "Estado",
       flex: 1,
     }
   ];
@@ -133,10 +133,10 @@ const Policy = () => {
       <Container>
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
             <Typography variant="h4" >
-              Policy
+              Pólizas
             </Typography>
             <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />} onClick={handleOpenAdd}>
-              New Policy
+              Nueva póliza
             </Button>
           </Stack>
           <TableStyle>

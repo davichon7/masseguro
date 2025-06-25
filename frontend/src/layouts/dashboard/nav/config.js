@@ -13,57 +13,59 @@ const navConfig = [
     icon: icon('ic_analytics'),
   },
   {
-    title: 'Lead Management',
+    title: 'Clientes potenciales',
     path: '/dashboard/lead',
     icon: icon('ic_lead'),
   },
   {
-    title: 'Contact Management',
+    title: 'Clientes',
     path: '/dashboard/contact',
     icon: icon('ic_contact'),
   },
   {
-    title: 'Policy Management',
+    title: 'Pólizas',
     path: '/dashboard/policy',
     icon: icon('ic_policy'),
   },
   {
-    title: 'Tasks',
+    title: 'Tareas',
     path: '/dashboard/task',
     icon: icon('ic_task'),
   },
   {
-    title: 'Meetings',
+    title: 'Reuniones',
     path: '/dashboard/meeting',
     icon: icon('ic_meeting'),
   },
   {
-    title: 'Calls',
+    title: 'Llamadas',
     path: '/dashboard/call',
     icon: icon('ic_call'),
   },
-  {
-    title: 'Emails',
+  /*  {
+    title: 'Correos',
     path: '/dashboard/email',
     icon: icon('ic_email'),
   },
+   */ 
   {
-    title: 'Calendar',
+    title: 'Calendario',
     path: '/dashboard/calendar',
     icon: icon('ic_calendar'),
   },
   {
-    title: 'Document Management',
+    title: 'Documentos',
     path: '/dashboard/document',
     icon: icon('ic_document'),
   },
-  {
-    title: 'Email Template',
+  /* {
+    title: 'Plantillas de correo',
     path: '/dashboard/emailtemplate',
     icon: icon('ic_emailTemplate'),
   },
+   */ 
   {
-    title: 'User Management',
+    title: 'Administrador de usuarios',
     path: '/dashboard/user',
     icon: icon('ic_user'),
   },

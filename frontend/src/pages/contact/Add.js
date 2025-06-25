@@ -32,10 +32,10 @@ const Add = (props) => {
     lastName: yup.string().required("Last Name is required"),
     dateOfBirth: yup.date().required("Date of Birth is required"),
     gender: yup.string().required("Gender is required"),
-    phoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid').required('Phone number is required'),
+    phoneNumber: yup.string().matches(/^[0-9]{11}$/, 'Phone number is invalid').required('Phone number is required'),
     emailAddress: yup.string().email('Invalid email').required("Email is required"),
     address: yup.string().required(),
-    alternatePhoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid'),
+    alternatePhoneNumber: yup.string().matches(/^[0-9]{11}$/, 'Phone number is invalid'),
     additionalEmailAddress: yup.string().email('Invalid email')
   });
 
@@ -99,7 +99,7 @@ const Add = (props) => {
             // color: "white",
           }}
         >
-          <Typography variant="h6">Add New </Typography>
+          <Typography variant="h6">Agregar Nuevo</Typography>
           <Typography>
             <ClearIcon
               onClick={handleClose}
@@ -111,7 +111,7 @@ const Add = (props) => {
         <DialogContent dividers>
           <form>
             <Typography style={{ marginBottom: "15px" }} variant="h6">
-              Basic Information
+              Información Personal
             </Typography>
             <Grid
               container
@@ -119,7 +119,7 @@ const Add = (props) => {
               columnSpacing={{ xs: 0, sm: 5, md: 4 }}
             >
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>First name</FormLabel>
+                <FormLabel>Nombres</FormLabel>
                 <TextField
                   id="firstName"
                   name="firstName"
@@ -138,7 +138,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Last name</FormLabel>
+                <FormLabel>Apellidos</FormLabel>
                 <TextField
                   id="lastName"
                   name="lastName"
@@ -153,7 +153,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Date Of Birth</FormLabel>
+                <FormLabel>Nacimiento</FormLabel>
                 <TextField
                   name='dateOfBirth'
                   type='date'
@@ -166,7 +166,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Phone number</FormLabel>
+                <FormLabel>Teléfono</FormLabel>
                 <TextField
                   id="phoneNumber"
                   name="phoneNumber"
@@ -185,7 +185,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Correo</FormLabel>
                 <TextField
                   id="emailAddress"
                   name="emailAddress"
@@ -204,17 +204,17 @@ const Add = (props) => {
               </Grid>
               <Grid item xs={12} >
                 <FormControl fullWidth>
-                  <FormLabel>Gender</FormLabel>
+                  <FormLabel>Género</FormLabel>
                   <RadioGroup row name="gender" onChange={formik.handleChange} value={formik.values.gender}>
-                    <FormControlLabel value="Male" control={<Radio />} label="Male" />
-                    <FormControlLabel value="Female" control={<Radio />} label="Female" />
-                    <FormControlLabel value="Other" control={<Radio />} label="Other" />
+                    <FormControlLabel value="Masculino" control={<Radio />} label="Masculino" />
+                    <FormControlLabel value="Femenino" control={<Radio />} label="Femenino" />
+                    <FormControlLabel value="Otro" control={<Radio />} label="Otro" />
                   </RadioGroup>
                   <FormHelperText style={{ color: Palette.error.main }}>{formik.touched.gender && formik.errors.gender}</FormHelperText>
                 </FormControl>
               </Grid>
               <Grid item xs={12} sm={12} md={12}>
-                <FormLabel>Address</FormLabel>
+                <FormLabel>Dirección</FormLabel>
                 <TextField
                   id="address"
                   name="address"
@@ -232,7 +232,7 @@ const Add = (props) => {
               </Grid>
             </Grid>
             <Typography style={{ marginBottom: "15px" }} variant="h6" mt={2}>
-              Additional Contact Details
+              Más Información
             </Typography>
             <Grid
               container
@@ -240,7 +240,7 @@ const Add = (props) => {
               columnSpacing={{ xs: 0, sm: 5, md: 4 }}
             >
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Alternate phone number</FormLabel>
+                <FormLabel>Teléfono Alternativo</FormLabel>
                 <TextField
                   id="alternatePhoneNumber"
                   name="alternatePhoneNumber"
@@ -254,7 +254,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Additional email address</FormLabel>
+                <FormLabel>Correo alternativo</FormLabel>
                 <TextField
                   id="additionalEmailAddress"
                   name="additionalEmailAddress"
@@ -268,7 +268,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Instagram profile</FormLabel>
+                <FormLabel>Instagram</FormLabel>
                 <TextField
                   id="instagramProfile"
                   name="instagramProfile"
@@ -280,7 +280,7 @@ const Add = (props) => {
                 {formik.values.instagramProfile && <a href={`https://www.instagram.com/${formik.values.instagramProfile}`} target="_blank" rel="noreferrer">Link</a>}
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Twitter profile</FormLabel>
+                <FormLabel>Twitter</FormLabel>
                 <TextField
                   id="twitterProfile"
                   name="twitterProfile"
@@ -292,7 +292,7 @@ const Add = (props) => {
                 {formik.values.twitterProfile && <a href={`https://twitter.com/${formik.values.twitterProfile}`} target="_blank" rel="noreferrer">Link</a>}
               </Grid>
               <Grid item xs={12} sm={12}>
-                <FormLabel>Preferred Contact Method</FormLabel>
+                <FormLabel>Método de contacto preferido</FormLabel>
                 <TextField
                   id="preferredContactMethod"
                   name="preferredContactMethod"
@@ -305,7 +305,7 @@ const Add = (props) => {
               </Grid>
             </Grid>
             <Typography style={{ marginBottom: "15px" }} variant="h6" mt={2}>
-              Referral Information
+              Información de referencia
             </Typography>
             <Grid
               container
@@ -314,7 +314,7 @@ const Add = (props) => {
             >
               <Grid item xs={12} sm={6} md={6}>
                 <FormControl fullWidth>
-                  <FormLabel>Referral source</FormLabel>
+                  <FormLabel>Fuente</FormLabel>
                   <Select
                     id="referralSource"
                     name="referralSource"
@@ -325,11 +325,11 @@ const Add = (props) => {
                       formik.touched.referralSource && Boolean(formik.errors.referralSource)
                     }
                   >
-                    <MenuItem value="Existing Customers">Existing Customers</MenuItem>
-                    <MenuItem value="Professional Networks">Professional Networks</MenuItem>
-                    <MenuItem value="Business Partnerships">Business Partnerships</MenuItem>
-                    <MenuItem value="Employee Referrals">Employee Referrals</MenuItem>
-                    <MenuItem value="Online Reviews and Social Media">Online Reviews and Social Media</MenuItem>
+                    <MenuItem value="Existing Customers">Clientes actuales</MenuItem>
+                    <MenuItem value="Professional Networks">Redes profesionales</MenuItem>
+                    <MenuItem value="Business Partnerships">Asociaciones empresariales</MenuItem>
+                    <MenuItem value="Employee Referrals">Referencias de empleados</MenuItem>
+                    <MenuItem value="Online Reviews and Social Media">Reseñas en línea o Redes sociales</MenuItem>
                   </Select>
                   <FormHelperText
                     error={
@@ -341,7 +341,7 @@ const Add = (props) => {
                 </FormControl>
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Referral Contact Name</FormLabel>
+                <FormLabel>Nombre del contacto</FormLabel>
                 <TextField
                   id="referralContactName"
                   name="referralContactName"
@@ -352,7 +352,7 @@ const Add = (props) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Relationship To Referrer</FormLabel>
+                <FormLabel>Relación con la persona</FormLabel>
                 <TextField
                   id="relationshipToReferrer"
                   name="relationshipToReferrer"
@@ -364,7 +364,7 @@ const Add = (props) => {
               </Grid>
             </Grid>
             <Typography style={{ marginBottom: "15px" }} variant="h6" mt={2}>
-              Communication Preferences
+              Preferencias de comunicación
             </Typography>
             <Grid
               container
@@ -373,7 +373,7 @@ const Add = (props) => {
             >
               <Grid item xs={12} sm={6} md={6}>
                 <FormControl fullWidth>
-                  <FormLabel>Marketing Communications</FormLabel>
+                  <FormLabel>¿Quiere recibir Marketing?</FormLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="preferencesForMarketingCommunications"
@@ -385,8 +385,8 @@ const Add = (props) => {
                       formik.touched.preferencesForMarketingCommunications && Boolean(formik.errors.preferencesForMarketingCommunications)
                     }
                   >
-                    <MenuItem value="Opt-in">Opt-in</MenuItem>
-                    <MenuItem value="Opt-out">Opt-out</MenuItem>
+                    <MenuItem value="Opt-in">Si</MenuItem>
+                    <MenuItem value="Opt-out">No</MenuItem>
                   </Select>
                   <FormHelperText
                     error={
@@ -399,7 +399,7 @@ const Add = (props) => {
 
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <FormLabel>Preferred language</FormLabel>
+                <FormLabel>Idioma preferido</FormLabel>
                 <TextField
                   id="preferredLanguage"
                   name="preferredLanguage"
@@ -421,7 +421,7 @@ const Add = (props) => {
             style={{ textTransform: "capitalize" }}
           // startIcon={<FiSave />}
           >
-            Save
+            Guardar
           </Button>
           <Button
             type="reset"
@@ -433,7 +433,7 @@ const Add = (props) => {
               handleClose()
             }}
           >
-            Cancle
+            Cancelar
           </Button>
         </DialogActions>
       </Dialog>

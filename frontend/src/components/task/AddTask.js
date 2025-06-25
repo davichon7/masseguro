@@ -28,13 +28,13 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
     const userdata = JSON.parse(localStorage.getItem('user'));
 
     const validationSchema = yup.object({
-        subject: yup.string().required("Subject is required"),
-        status: yup.string().required("Status is required"),
-        startDate: yup.string().required("Start Date is required"),
-        endDate: yup.string().required("End date is required"),
-        priority: yup.string().required("Priority is required"),
-        assignTo: yup.string().required("Assign To is required"),
-        relatedTo: yup.string().required("Related To is required"),
+        subject: yup.string().required("Obligatorio"),
+        status: yup.string().required("Obligatorio"),
+        startDate: yup.string().required("Obligatorio"),
+        endDate: yup.string().required("Obligatorio"),
+        priority: yup.string().required("Obligatorio"),
+        assignTo: yup.string().required("Obligatorio"),
+        relatedTo: yup.string().required("Obligatorio"),
     });
 
     const initialValues = {
@@ -119,7 +119,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                         // color: "white",
                     }}
                 >
-                    <Typography variant="h6">Create Task </Typography>
+                    <Typography variant="h6">Crear tarea </Typography>
                     <Typography>
                         <ClearIcon
                             onClick={handleClose}
@@ -140,7 +140,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel id="demo-row-radio-buttons-group-label">Subject</FormLabel>
+                                    <FormLabel id="demo-row-radio-buttons-group-label">Asunto</FormLabel>
                                     <TextField
                                         id="subject"
                                         name="subject"
@@ -160,7 +160,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
                                     <FormControl>
-                                        <FormLabel>Related To</FormLabel>
+                                        <FormLabel>Relacionado a</FormLabel>
                                         <RadioGroup
                                             row
                                             aria-labelledby="demo-row-radio-buttons-group-label"
@@ -169,8 +169,8 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                             error={formik.touched.relatedTo && Boolean(formik.errors.relatedTo)}
                                             onChange={formik.handleChange}
                                         >
-                                            <FormControlLabel value="Lead" control={<Radio />} label="Lead" />
-                                            <FormControlLabel value="Contact" control={<Radio />} label="Contact" />
+                                            <FormControlLabel value="Cliente Potencial" control={<Radio />} label="Cliente Potencial" />
+                                            <FormControlLabel value="Cliente" control={<Radio />} label="Cliente" />
                                         </RadioGroup>
                                         <FormHelperText
                                             error={
@@ -182,7 +182,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} sm={4}>
-                                    <FormLabel>Status</FormLabel>
+                                    <FormLabel>Estado</FormLabel>
                                     <FormControl fullWidth>
                                         <Select
                                             labelId="demo-simple-select-label"
@@ -194,11 +194,11 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                             onChange={formik.handleChange}
                                             error={formik.touched.status && Boolean(formik.errors.status)}
                                         >
-                                            <MenuItem value="Note Started">Note Started</MenuItem>
-                                            <MenuItem value="In Progress">In Progress</MenuItem>
-                                            <MenuItem value="Completed">Completed</MenuItem>
-                                            <MenuItem value="Pending Input">Pending Input</MenuItem>
-                                            <MenuItem value="Deferred">Deferred</MenuItem>
+                                            <MenuItem value="Sin comenzar">Sin comenzar</MenuItem>
+                                            <MenuItem value="En progreso">En progreso</MenuItem>
+                                            <MenuItem value="Completada">Completada</MenuItem>
+                                            <MenuItem value="Pendiente">Pendiente</MenuItem>
+                                            <MenuItem value="Aplazada">Aplazada</MenuItem>
                                         </Select>
                                         <FormHelperText
                                             error={
@@ -210,7 +210,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} sm={4}>
-                                    <FormLabel>Priority</FormLabel>
+                                    <FormLabel>Prioridad</FormLabel>
                                     <FormControl fullWidth>
                                         <Select
                                             labelId="demo-simple-select-label"
@@ -222,9 +222,9 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                             onChange={formik.handleChange}
                                             error={formik.touched.priority && Boolean(formik.errors.priority)}
                                         >
-                                            <MenuItem value="High">High</MenuItem>
-                                            <MenuItem value="Medium">Medium</MenuItem>
-                                            <MenuItem value="Low">Low</MenuItem>
+                                            <MenuItem value="Alta">Alta</MenuItem>
+                                            <MenuItem value="Media">Media</MenuItem>
+                                            <MenuItem value="Baja">Baja</MenuItem>
                                         </Select>
                                         <FormHelperText
                                             error={
@@ -236,7 +236,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={4}>
-                                    <FormLabel id="demo-row-radio-buttons-group-label">Assign To</FormLabel>
+                                    <FormLabel id="demo-row-radio-buttons-group-label">Usuario</FormLabel>
                                     <FormControl fullWidth>
                                         <Select
                                             labelId="demo-simple-select-label"
@@ -276,9 +276,9 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     </FormControl>
                                 </Grid>
                                 {
-                                    formik.values.relatedTo === "Lead" &&
+                                    formik.values.relatedTo === "Cliente Potencial" &&
                                     <Grid item xs={12} sm={12} md={12}>
-                                        <FormLabel id="demo-row-radio-buttons-group-label">Related To Lead</FormLabel>
+                                        <FormLabel id="demo-row-radio-buttons-group-label">Cliente potencial</FormLabel>
                                         <FormControl fullWidth>
                                             <Autocomplete
                                                 id="lead-autocomplete"
@@ -302,9 +302,9 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                 }
 
                                 {
-                                    formik.values.relatedTo === "Contact" &&
+                                    formik.values.relatedTo === "Cliente" &&
                                     <Grid item xs={12} sm={12} md={12}>
-                                        <FormLabel id="demo-row-radio-buttons-group-label">Related To Contact</FormLabel>
+                                        <FormLabel id="demo-row-radio-buttons-group-label">Cliente</FormLabel>
                                         <FormControl fullWidth>
                                             <Autocomplete
                                                 id="contact-autocomplete"
@@ -329,7 +329,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                 }
 
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Start Date</FormLabel>
+                                    <FormLabel>Fecha de inicio</FormLabel>
                                     <TextField
                                         name='startDate'
                                         type={'datetime-local'}
@@ -342,7 +342,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>End Date</FormLabel>
+                                    <FormLabel>Fecha término</FormLabel>
                                     <TextField
                                         name='endDate'
                                         type={'datetime-local'}
@@ -356,7 +356,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                 </Grid>
 
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel id="demo-row-radio-buttons-group-label">Background Color</FormLabel>
+                                    <FormLabel id="demo-row-radio-buttons-group-label">Color de fondo</FormLabel>
                                     <TextField
                                         id=""
                                         name="backgroundColor"
@@ -376,7 +376,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel id="demo-row-radio-buttons-group-label">Text Color</FormLabel>
+                                    <FormLabel id="demo-row-radio-buttons-group-label">Color de texto</FormLabel>
                                     <TextField
                                         id=""
                                         name="textColor"
@@ -396,7 +396,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12}>
-                                    <FormLabel id="demo-row-radio-buttons-group-label">Note</FormLabel>
+                                    <FormLabel id="demo-row-radio-buttons-group-label">Observaciones</FormLabel>
                                     <TextField
                                         id="Note"
                                         name="note"
@@ -427,7 +427,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                         style={{ textTransform: "capitalize" }}
                         color="secondary"
                     >
-                        Save
+                        Guardar
                     </Button>
                     <Button
                         type="reset"
@@ -439,7 +439,7 @@ const AddEvent = ({ open, handleClose, setUserAction, _id }) => {
                         }}
                         color="error"
                     >
-                        Cancle
+                        Cancelar
                     </Button>
                 </DialogActions>
             </Dialog>

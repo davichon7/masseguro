@@ -75,7 +75,7 @@ const Actionbutton = (props) => {
                     onClick={handleClickaction}
                     endIcon={<KeyboardArrowDownIcon />}
                 >
-                    Actions
+                    Acciones
                 </Button>
                 <StyledMenu
                     id="demo-customized-menu"
@@ -91,14 +91,14 @@ const Actionbutton = (props) => {
                         props.handleOpen &&
                         <MenuItem onClick={props.handleOpen} disableRipple>
                             <AddIcon />
-                            Add
+                            Nueva
                         </MenuItem>
                     }
                     {
                         props.handleOpenEdit &&
                         <MenuItem onClick={props.handleOpenEdit} disableRipple>
                             <EditIcon />
-                            Edit
+                            Editar
                         </MenuItem>
                     }
 
@@ -108,19 +108,19 @@ const Actionbutton = (props) => {
                         props.handleOpenDelete &&
                         <MenuItem onClick={props.handleOpenDelete} disableRipple >
                             <DeleteIcon />
-                            Delete
+                            Borrar
                         </MenuItem>
                     }
 
                     {
                         props.handleExport && <MenuItem disableRipple onClick={props.handleExport}>
                             <SaveAltIcon />
-                            Export CSV
+                            Exportar CSV
                         </MenuItem>
                     }
                 </StyledMenu>
                 <Button variant="contained" color="secondary" onClick={props.back} startIcon={<ArrowBackIosIcon />}>
-                    Back
+                    Atrás
                 </Button>
             </Stack>
         </div>

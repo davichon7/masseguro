@@ -28,22 +28,22 @@ const Edit = (props) => {
 
     // -----------  validationSchema
     const validationSchema = yup.object({
-        policyType: yup.string().required("Policy Type is required"),
-        policyStartDate: yup.date().required("Policy Start Date is required"),
-        policyEndDate: yup.date().required("Policy End Date is required"),
-        policyStatus: yup.string().required("Policy Status is required"),
-        coverageAmounts: yup.number().required("Coverage Amounts is required"),
-        deductibles: yup.number().required("Deductions is required"),
-        limits: yup.number().required("Limits is required"),
-        insuredPersonName: yup.string().required("Person Name is required"),
-        insuredPersonDateOfBirth: yup.date().required("Date of Birth is required"),
-        relationshipToTheInsured: yup.string().required("Relationship To The Insured is required"),
-        phoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid').required('Phone number is required'),
-        emailAddress: yup.string().email('Invalid email').required("Email is required"),
-        additionalPhoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid'),
-        additionalEmailAddress: yup.string().email('Invalid email'),
-        underwriterPhone: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid'),
-        underwriterEmail: yup.string().email('Invalid email')
+        policyType: yup.string().required("Obligatorio"),
+        policyStartDate: yup.date().required("Obligatorio"),
+        policyEndDate: yup.date().required("Obligatorio"),
+        policyStatus: yup.string().required("Obligatorio"),
+        coverageAmounts: yup.number().required("Obligatorio"),
+        deductibles: yup.number().required("Obligatorio"),
+        limits: yup.number().required("Obligatorio"),
+        insuredPersonName: yup.string().required("Obligatorio"),
+        insuredPersonDateOfBirth: yup.date().required("Obligatorio"),
+        relationshipToTheInsured: yup.string().required("Obligatorio"),
+        phoneNumber: yup.string().matches(/^[0-9]{11}$/, 'Inválido').required('Obligatorio'),
+        emailAddress: yup.string().email('Invalid email').required("Obligatorio"),
+        additionalPhoneNumber: yup.string().matches(/^[0-9]{11}$/, 'Inválido'),
+        additionalEmailAddress: yup.string().email('Inválido'),
+        underwriterPhone: yup.string().matches(/^[0-9]{11}$/, 'Inválido'),
+        underwriterEmail: yup.string().email('Inválido')
     });
 
     // -----------   initialValues
@@ -174,7 +174,7 @@ const Edit = (props) => {
                             tabIndex={-1}
                         >
                             <Typography style={{ marginBottom: "15px" }} variant="h6">
-                                Policy Details
+                                Detalles de la póliza
                             </Typography>
                             <Grid
                                 container
@@ -183,7 +183,7 @@ const Edit = (props) => {
                             >
                                 <Grid item xs={12} sm={6} md={6}>
                                     <FormControl fullWidth>
-                                        <FormLabel>Policy type</FormLabel>
+                                        <FormLabel>Tipo de seguro</FormLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="policyType"
@@ -200,16 +200,16 @@ const Edit = (props) => {
                                                 formik.touched.policyType && formik.errors.policyType
                                             }
                                         >
-                                            <MenuItem value="Auto Insurance">Auto Insurance</MenuItem>
-                                            <MenuItem value="Health Insurance">Health Insurance </MenuItem>
-                                            <MenuItem value="Home Insurance">Home Insurance </MenuItem>
-                                            <MenuItem value="Life Insurance">Life Insurance </MenuItem>
+                                            <MenuItem value="Seguro de auto">Seguro de auto</MenuItem>
+                                            <MenuItem value="Seguro de salud">Seguro de salud </MenuItem>
+                                            <MenuItem value="Seguro de hogar">Seguro de hogar </MenuItem>
+                                            <MenuItem value="Seguro de vida">Seguro de vida </MenuItem>
                                         </Select>
                                         <FormHelperText style={{ color: Palette.error.main }}>{formik.touched.policyType && formik.errors.policyType}</FormHelperText>
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Policy Start Date</FormLabel>
+                                    <FormLabel>Fecha de inicio</FormLabel>
                                     <TextField
                                         name='policyStartDate'
                                         type='date'
@@ -222,7 +222,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Policy End Date</FormLabel>
+                                    <FormLabel>Vencimiento</FormLabel>
                                     <TextField
                                         name='policyEndDate'
                                         type='date'
@@ -236,7 +236,7 @@ const Edit = (props) => {
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
                                     <FormControl fullWidth>
-                                        <FormLabel>Policy status</FormLabel>
+                                        <FormLabel>Estado</FormLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="policyStatus"
@@ -253,9 +253,9 @@ const Edit = (props) => {
                                                 formik.touched.policyStatus && formik.errors.policyStatus
                                             }
                                         >
-                                            <MenuItem value="Active">Active</MenuItem>
-                                            <MenuItem value="InActive">InActive </MenuItem>
-                                            <MenuItem value="Canceled">Canceled </MenuItem>
+                                            <MenuItem value="Activa">Activa</MenuItem>
+                                            <MenuItem value="Inactiva">Inactiva </MenuItem>
+                                            <MenuItem value="Cancelada">Cancelada </MenuItem>
                                         </Select>
                                         <FormHelperText style={{ color: Palette.error.main }}>{formik.touched.policyStatus && formik.errors.policyStatus}</FormHelperText>
                                     </FormControl>
@@ -265,7 +265,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Policy Coverage Details
+                                Detalle de cobertura
                             </Typography>
                             <Grid
                                 container
@@ -273,7 +273,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Coverage Amounts</FormLabel>
+                                    <FormLabel>Monto de cobertura</FormLabel>
                                     <TextField
                                         id="coverageAmounts"
                                         name="coverageAmounts"
@@ -291,7 +291,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Deductibles</FormLabel>
+                                    <FormLabel>Deducibles</FormLabel>
                                     <TextField
                                         id="deductibles"
                                         name="deductibles"
@@ -309,7 +309,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <FormLabel>Limits</FormLabel>
+                                    <FormLabel>Límite</FormLabel>
                                     <TextField
                                         id="limits"
                                         name="limits"
@@ -331,7 +331,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Insured Details
+                                Detalles del asegurado
                             </Typography>
                             <Grid
                                 container
@@ -339,7 +339,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Insured Person Name</FormLabel>
+                                    <FormLabel>Nombre persona</FormLabel>
                                     <TextField
                                         id="insuredPersonName"
                                         name="insuredPersonName"
@@ -352,7 +352,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Date Of Birth</FormLabel>
+                                    <FormLabel>Fecha de Nacimiento</FormLabel>
                                     <TextField
                                         name='insuredPersonDateOfBirth'
                                         type='date'
@@ -365,7 +365,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <FormLabel>Relationship to the insured</FormLabel>
+                                    <FormLabel>Relación con el asegurado</FormLabel>
                                     <TextField
                                         id="relationshipToTheInsured"
                                         name="relationshipToTheInsured"
@@ -382,7 +382,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Insured person's contact information
+                                Información de contacto del asegurado
                             </Typography>
                             <Grid
                                 container
@@ -390,7 +390,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Phone Number</FormLabel>
+                                    <FormLabel>Teléfono</FormLabel>
                                     <TextField
                                         id=""
                                         name="phoneNumber"
@@ -404,7 +404,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Email Address</FormLabel>
+                                    <FormLabel>Correo</FormLabel>
                                     <TextField
                                         id="emailAddress"
                                         name="emailAddress"
@@ -418,7 +418,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Instagram Profile</FormLabel>
+                                    <FormLabel>Instagram</FormLabel>
                                     <TextField
                                         id="instagramProfile"
                                         name="instagramProfile"
@@ -431,7 +431,7 @@ const Edit = (props) => {
                                     {formik.values.instagramProfile && <a href={`https://www.instagram.com/${formik.values.instagramProfile}`} target="_blank" rel="noreferrer">Link</a>}
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Twitter profile</FormLabel>
+                                    <FormLabel>Twitter</FormLabel>
                                     <TextField
                                         id="twitterProfile"
                                         name="twitterProfile"
@@ -448,7 +448,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Additional Insured
+                                Asegurado adicional
                             </Typography>
                             <Grid
                                 container
@@ -456,7 +456,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Person Name</FormLabel>
+                                    <FormLabel>Nombre persona</FormLabel>
                                     <TextField
                                         id="additionalInsuredPersonName"
                                         name="additionalInsuredPersonName"
@@ -467,7 +467,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Date Of Birth</FormLabel>
+                                    <FormLabel>Fecha de nacimiento</FormLabel>
                                     <TextField
                                         name='additionalInsuredDateOfBirth'
                                         type='date'
@@ -481,7 +481,7 @@ const Edit = (props) => {
                                 </Grid>
 
                                 <Grid item xs={12} sm={12} md={12}>
-                                    <FormLabel>Relationship to the insured</FormLabel>
+                                    <FormLabel>Relación con el asegurado</FormLabel>
                                     <TextField
                                         id="additionalRelationshipToTheInsured"
                                         name="additionalRelationshipToTheInsured"
@@ -496,7 +496,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Additional insured person's contact information
+                                Información de contacto del asegurado adicional
                             </Typography>
                             <Grid
                                 container
@@ -504,7 +504,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Phone Number</FormLabel>
+                                    <FormLabel>Teléfono</FormLabel>
                                     <TextField
                                         id="additionalPhoneNumber"
                                         name="additionalPhoneNumber"
@@ -518,7 +518,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Email</FormLabel>
+                                    <FormLabel>Correo</FormLabel>
                                     <TextField
                                         id="additionalEmailAddress"
                                         name="additionalEmailAddress"
@@ -532,7 +532,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Instagram profile</FormLabel>
+                                    <FormLabel>Instagram</FormLabel>
                                     <TextField
                                         id="additionalInstagramProfile"
                                         name="additionalInstagramProfile"
@@ -545,7 +545,7 @@ const Edit = (props) => {
                                     {formik.values.additionalInstagramProfile && <a href={`https://www.instagram.com/${formik.values.additionalInstagramProfile}`} target="_blank" rel="noreferrer">Link</a>}
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Twitter profile</FormLabel>
+                                    <FormLabel>Twitter</FormLabel>
                                     <TextField
                                         id="additionalTwitterProfile"
                                         name="additionalTwitterProfile"
@@ -562,7 +562,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Policy Premiums and Payments
+                                Primas y Pagos de la Póliza
                             </Typography>
                             <Grid
                                 container
@@ -570,7 +570,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Premium Amount</FormLabel>
+                                    <FormLabel>Importe de la prima</FormLabel>
                                     <TextField
                                         id="premiumAmount"
                                         name="premiumAmount"
@@ -584,7 +584,7 @@ const Edit = (props) => {
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
                                     <FormControl fullWidth>
-                                        <FormLabel>Premium Payments</FormLabel>
+                                        <FormLabel>Frecuencia de pago</FormLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="FrequencyOfPremiumPayments"
@@ -594,8 +594,9 @@ const Edit = (props) => {
                                             value={formik.values.FrequencyOfPremiumPayments}
                                             onChange={formik.handleChange}
                                         >
-                                            <MenuItem value="Monthly">Monthly</MenuItem>
-                                            <MenuItem value="Annually">Annually </MenuItem>
+                                            <MenuItem value="Mensual">Mensual</MenuItem>
+                                            <MenuItem value="Semestral">Semestral </MenuItem>
+                                            <MenuItem value="Anual">Anual </MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -605,7 +606,7 @@ const Edit = (props) => {
                                 style={{ marginBottom: "15px", marginTop: "15px" }}
                                 variant="h6"
                             >
-                                Underwriting Information
+                                Información del Suscriptor
                             </Typography>
                             <Grid
                                 container
@@ -613,7 +614,7 @@ const Edit = (props) => {
                                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
                             >
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Name</FormLabel>
+                                    <FormLabel>Nombre</FormLabel>
                                     <TextField
                                         id=""
                                         name="underwriterName"
@@ -626,7 +627,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Phone</FormLabel>
+                                    <FormLabel>Teléfono</FormLabel>
                                     <TextField
                                         id=""
                                         name="underwriterPhone"
@@ -640,7 +641,7 @@ const Edit = (props) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <FormLabel>Email</FormLabel>
+                                    <FormLabel>Correo</FormLabel>
                                     <TextField
                                         id=""
                                         name="underwriterEmail"
@@ -655,7 +656,7 @@ const Edit = (props) => {
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
                                     <FormControl fullWidth>
-                                        <FormLabel>Underwriter Remarks</FormLabel>
+                                        <FormLabel>Observaciones del suscriptor</FormLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="underwriterDecisions"
@@ -665,9 +666,9 @@ const Edit = (props) => {
                                             value={formik.values.underwriterDecisions}
                                             onChange={formik.handleChange}
                                         >
-                                            <MenuItem value="Policyholder has a clean driving record">Policyholder has a clean driving record</MenuItem>
-                                            <MenuItem value="Policyholder's property located in a low-risk area">Policyholder's property located in a low-risk area </MenuItem>
-                                            <MenuItem value="Underwriter consulted with the claims department to assess potential risks.">Underwriter consulted with the claims department to assess potential risks. </MenuItem>
+                                            <MenuItem value="Policyholder has a clean driving record">El tomador del seguro tiene un historial limpio de conducción</MenuItem>
+                                            <MenuItem value="Policyholder's property located in a low-risk area">La propuedad del tomador se encuentra en una zona de bajo riesgo</MenuItem>
+                                            <MenuItem value="Underwriter consulted with the claims department to assess potential risks.">El tomador consultó con el departamento de sinistros para evaluar riesgos potenciales</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -677,11 +678,11 @@ const Edit = (props) => {
                     </form>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={formik.handleSubmit} variant='contained' color='primary'>Save</Button>
+                    <Button onClick={formik.handleSubmit} variant='contained' color='primary'>Guardar</Button>
                     <Button onClick={() => {
                         formik.resetForm()
                         handleClose()
-                    }} variant='outlined' color='error'>Cancle</Button>
+                    }} variant='outlined' color='error'>Cancelar</Button>
                 </DialogActions>
             </Dialog>
         </div>

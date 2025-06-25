@@ -82,7 +82,7 @@ const Contact = () => {
     const columns = [
         {
             field: "firstName",
-            headerName: "Frist Name",
+            headerName: "Nombres",
             flex: 1,
             cellClassName: "name-column--cell name-column--cell--capitalize",
             renderCell: (params) => {
@@ -99,28 +99,28 @@ const Contact = () => {
         },
         {
             field: "lastName",
-            headerName: "Last Name",
+            headerName: "Apellidos",
             flex: 1,
             cellClassName:"name-column--cell--capitalize"
         },
         {
             field: "gender",
-            headerName: "Gender",
+            headerName: "Género",
             flex: 1,
         },
         {
             field: "phoneNumber",
-            headerName: "Phone Number",
+            headerName: "Teléfono",
             flex: 1,
         },
         {
             field: "emailAddress",
-            headerName: "Email Address",
+            headerName: "Correo",
             flex: 1,
         },
         {
             field: "action",
-            headerName: "Action",
+            headerName: "Editar",
             flex: 1,
             // eslint-disable-next-line arrow-body-style
             renderCell: (params) => {
@@ -160,10 +160,10 @@ const Contact = () => {
                 <TableStyle>
                     <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                         <Typography variant="h4">
-                            Contact
+                            Clientes
                         </Typography>
                         <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />} onClick={handleOpenAdd}>
-                            New Contact
+                            Nuevo Cliente
                         </Button>
                     </Stack>
                     <Box width="100%">

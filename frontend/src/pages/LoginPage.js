@@ -59,7 +59,7 @@ export default function LoginPage() {
         {mdUp && (
           <StyledSection>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
+              Hola, Bienvenido
             </Typography>
             <img src="/assets/illustrations/illustration_login.png" alt="login" />
           </StyledSection>
@@ -69,7 +69,7 @@ export default function LoginPage() {
           <StyledContent>
           <img src="/assets/logo prolink.png" width={250} style={{marginLeft:"-7px"}}/>
             <Typography variant="h4" gutterBottom mb={4}>
-              Sign in to SureCRM
+              Inicia Sesión
             </Typography>
 
             

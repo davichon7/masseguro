@@ -16,12 +16,12 @@ export default function AccountPopover() {
 
   const MENU_OPTIONS = [
     {
-      label: 'Home',
+      label: 'Inicio',
       icon: 'eva:home-fill',
       path: "/dashboard/app"
     },
     {
-      label: 'Profile',
+      label: 'Perfil',
       icon: 'eva:person-fill',
       path: `/dashboard/user/view/${user._id}`
     },

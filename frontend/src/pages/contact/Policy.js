@@ -23,7 +23,7 @@ const Policy = ({ rows, toggleVisibilityPolicy, isVisiblePolicy, _id, setUserAct
   const columns = [
     {
       field: "policyNumber",
-      headerName: "Policy Number",
+      headerName: "Número de póliza",
       flex: 1,
       cellClassName: "name-column--cell",
       renderCell: (params) => {
@@ -40,12 +40,12 @@ const Policy = ({ rows, toggleVisibilityPolicy, isVisiblePolicy, _id, setUserAct
     },
     {
       field: "policyType",
-      headerName: "Policy Type",
+      headerName: "Tipo de póliza",
       flex: 1,
     },
     {
       field: "policyStartDate",
-      headerName: "Policy start date",
+      headerName: "Fecha de inicio",
       flex: 1,
       valueFormatter: (params) => {
         const date = new Date(params.value);
@@ -54,7 +54,7 @@ const Policy = ({ rows, toggleVisibilityPolicy, isVisiblePolicy, _id, setUserAct
     },
     {
       field: "policyEndDate",
-      headerName: "Policy end date",
+      headerName: "Vencimiento",
       flex: 1,
       valueFormatter: (params) => {
         const date = new Date(params.value);
@@ -63,7 +63,7 @@ const Policy = ({ rows, toggleVisibilityPolicy, isVisiblePolicy, _id, setUserAct
     },
     {
       field: "policyStatus",
-      headerName: "Policy status",
+      headerName: "Estado",
       flex: 1,
     }
   ];
@@ -88,7 +88,7 @@ const Policy = ({ rows, toggleVisibilityPolicy, isVisiblePolicy, _id, setUserAct
                 {isVisiblePolicy ? <RemoveIcon /> : <AddIcon />}
               </Button>
               <PolicyIcon />
-              <Typography variant="h5">Policy</Typography>
+              <Typography variant="h5">Pólizas</Typography>
             </Stack>
             <Stack direction="row" alignItems="center" justifyContent={"flex-end"} spacing={2}>
               {isVisiblePolicy && (
@@ -99,7 +99,7 @@ const Policy = ({ rows, toggleVisibilityPolicy, isVisiblePolicy, _id, setUserAct
                   startIcon={<AddIcon />}
                   onClick={handleOpenAdd}
                 >
-                  Create Policy
+                  Crear Póliza
                 </Button>
               )}
             </Stack>

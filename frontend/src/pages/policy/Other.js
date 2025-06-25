@@ -11,7 +11,7 @@ const Other = ({ data }) => (
                 <Grid container display="flex" spacing={4}>
                     <Grid item xs={12} sm={6}>
                         <Grid style={{ borderBottom: "1.5px dashed", borderBottomColor: Palette.grey[400] }} pb={2}>
-                            <Typography variant="body1">Create Date :</Typography>
+                            <Typography variant="body1">Fecha de creación :</Typography>
                             <Typography variant="body2" color={Palette.grey[600]}>
                                 {moment(data?.createdOn).format('lll')}
                             </Typography>
@@ -19,7 +19,7 @@ const Other = ({ data }) => (
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Grid style={{ borderBottom: "1.5px dashed", borderBottomColor: Palette.grey[400] }} pb={2}>
-                            <Typography variant="body1">Modified Date :</Typography>
+                            <Typography variant="body1">Fecha modificación :</Typography>
                             <Typography variant="body2" color={Palette.grey[600]}>
                                 {moment(data?.modifiedOn).format('lll')}
                             </Typography>

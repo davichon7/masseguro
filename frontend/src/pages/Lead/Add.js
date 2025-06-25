@@ -26,19 +26,19 @@ const Add = (props) => {
 
   // -----------  validationSchema
   const validationSchema = yup.object({
-    title: yup.string().required("Title is required"),
-    firstName: yup.string().required("First Name is required"),
-    lastName: yup.string().required("Last Name is required"),
-    dateOfBirth: yup.date().required("Date of Birth is required"),
-    gender: yup.string().required("Gender is required"),
-    phoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid').required('Phone number is required'),
-    emailAddress: yup.string().email('Invalid email').required("Email is required"),
-    address: yup.string().required("Address is required"),
+    title: yup.string().required("Obligatorio"),
+    firstName: yup.string().required("Obligatorio"),
+    lastName: yup.string().required("Obligatorio"),
+    dateOfBirth: yup.date().required("Obligatorio"),
+    gender: yup.string().required("Obligatorio"),
+    phoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Número de teléfono inválido').required('Obligatorio'),
+    emailAddress: yup.string().email('Correo electrónico inválido').required("Obligatorio"),
+    address: yup.string().required("Obligatorio"),
     desiredCoverageAmount: yup.number(),
     coverageAmount: yup.number(),
-    alternatePhoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Phone number is invalid'),
-    additionalEmailAddress: yup.string().email('Invalid email'),
-    assigned_agent: yup.string().required("Assigned Agent is required")
+    alternatePhoneNumber: yup.string().matches(/^[0-9]{10}$/, 'Número de teléfono inválido'),
+    additionalEmailAddress: yup.string().email('Correo electrónico inválido'),
+    assigned_agent: yup.string().required("Obligatorio")
   });
 
   // -----------   initialValues
@@ -128,7 +128,7 @@ const Add = (props) => {
             // color: "white",
           }}
         >
-          <Typography variant="h6">Add New</Typography>
+          <Typography variant="h6">Agregar Nuevo</Typography>
           <Typography>
             <ClearIcon
               onClick={handleClose}
@@ -143,7 +143,7 @@ const Add = (props) => {
               tabIndex={-1}
             >
               <Typography style={{ marginBottom: "15px" }} variant="h6">
-                Basic Information
+                Información Básica
               </Typography>
               <Grid
                 container
@@ -152,7 +152,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={4} md={4}>
                   <FormControl fullWidth>
-                    <FormLabel>Title</FormLabel>
+                    <FormLabel>Título</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="title"
@@ -170,17 +170,17 @@ const Add = (props) => {
                         formik.touched.title && formik.errors.title
                       }
                     >
-                      <MenuItem value="Mr.">Mr.</MenuItem>
-                      <MenuItem value="Mrs.">Mrs. </MenuItem>
-                      <MenuItem value="Miss.">Miss. </MenuItem>
-                      <MenuItem value="Ms.">Ms. </MenuItem>
-                      <MenuItem value="Dr.">Dr. </MenuItem>
+                      <MenuItem value="Mr.">Sr.</MenuItem>
+                      <MenuItem value="Mrs.">Sra.</MenuItem>
+                      <MenuItem value="Miss.">Srta.</MenuItem>
+                      <MenuItem value="Ms.">Sra.</MenuItem>
+                      <MenuItem value="Dr.">Dr.</MenuItem>
                     </Select>
                     <FormHelperText style={{ color: Palette.error.main }}>{formik.touched.title && formik.errors.title}</FormHelperText>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4} md={4}>
-                  <FormLabel>First name</FormLabel>
+                  <FormLabel>Nombres</FormLabel>
                   <TextField
                     id="fristName"
                     name="firstName"
@@ -200,7 +200,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={4} md={4}>
-                  <FormLabel>Last name</FormLabel>
+                  <FormLabel>Apellidos</FormLabel>
                   <TextField
                     id="lastName"
                     name="lastName"
@@ -214,7 +214,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Date Of Birth</FormLabel>
+                  <FormLabel>Fecha de Nacimiento</FormLabel>
                   <TextField
                     name='dateOfBirth'
                     type='date'
@@ -227,7 +227,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Phone number</FormLabel>
+                  <FormLabel>Teléfono</FormLabel>
                   <TextField
                     id="phoneNumber"
                     name="phoneNumber"
@@ -246,7 +246,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>Correo Electrónico</FormLabel>
                   <TextField
                     id="emailAddress"
                     name="emailAddress"
@@ -266,17 +266,17 @@ const Add = (props) => {
                 </Grid>
                 <Grid item xs={12} >
                   <FormControl fullWidth>
-                    <FormLabel>Gender</FormLabel>
+                    <FormLabel>Género</FormLabel>
                     <RadioGroup row name="gender" onChange={formik.handleChange} value={formik.values.gender}>
-                      <FormControlLabel value="Male" control={<Radio />} label="Male" />
-                      <FormControlLabel value="Female" control={<Radio />} label="Female" />
-                      <FormControlLabel value="Other" control={<Radio />} label="Other" />
+                      <FormControlLabel value="Male" control={<Radio />} label="Masculino" />
+                      <FormControlLabel value="Female" control={<Radio />} label="Femenino" />
+                      <FormControlLabel value="Other" control={<Radio />} label="Otro" />
                     </RadioGroup>
                     <FormHelperText style={{ color: Palette.error.main }}>{formik.touched.gender && formik.errors.gender}</FormHelperText>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
-                  <FormLabel>Address</FormLabel>
+                  <FormLabel>Dirección</FormLabel>
                   <TextField
                     id="address"
                     name="address"
@@ -301,7 +301,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Source Information
+                Fuente de Información
               </Typography>
               <Grid
                 container
@@ -310,7 +310,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={12} md={12}>
                   <FormControl fullWidth>
-                    <FormLabel>Lead Source</FormLabel>
+                    <FormLabel>como nos conoció</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="leadSource"
@@ -323,23 +323,23 @@ const Add = (props) => {
 
                     >
                       <MenuItem value="Website Referrals">
-                        Website Referrals
+                        Sitio Web
                       </MenuItem>
-                      <MenuItem value="Advertising">Advertising </MenuItem>
-                      <MenuItem value="Social Media">Social Media </MenuItem>
+                      <MenuItem value="Advertising">Publicidad</MenuItem>
+                      <MenuItem value="Social Media">Redes Sociales</MenuItem>
                       <MenuItem value="Events and Trade Shows">
-                        Events and Trade Shows{" "}
+                        Eventos y Ferias Comerciales
                       </MenuItem>
                       <MenuItem value="Call Centers or Telemarketing">
-                        Call Centers or Telemarketing
+                        Centros de Llamadas o Telemarketing
                       </MenuItem>
-                      <MenuItem value="Partnerships">Partnerships</MenuItem>
-                      <MenuItem value="Direct Mail">Direct Mail </MenuItem>
+                      <MenuItem value="Partnerships">Alianzas</MenuItem>
+                      <MenuItem value="Direct Mail">Correo Directo</MenuItem>
                       <MenuItem value="Online Aggregators or Comparison Websites">
-                        Online Aggregators or Comparison Websites
+                        Buscadores en Línea o Sitios de Comparación
                       </MenuItem>
                       <MenuItem value="Content Marketing">
-                        Content Marketing
+                        Marketing de Contenidos
                       </MenuItem>
                     </Select>
                   </FormControl>
@@ -349,7 +349,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Lead Details
+                Detalles
               </Typography>
               <Grid
                 container
@@ -358,7 +358,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={4} md={4}>
                   <FormControl fullWidth>
-                    <FormLabel>Lead Status</FormLabel>
+                    <FormLabel>Estado</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="leadStatus"
@@ -370,25 +370,25 @@ const Add = (props) => {
                       onChange={formik.handleChange}
 
                     >
-                      <MenuItem value="New">New</MenuItem>
-                      <MenuItem value="Contacted">Contacted </MenuItem>
-                      <MenuItem value="Qualified">Qualified </MenuItem>
-                      <MenuItem value="Not Qualified"> Not Qualified </MenuItem>
-                      <MenuItem value="In Progress">In Progress</MenuItem>
-                      <MenuItem value="Closed/Won">Closed/Won</MenuItem>
-                      <MenuItem value="Closed/Lost">Closed/Lost </MenuItem>
+                      <MenuItem value="New">Nuevo</MenuItem>
+                      <MenuItem value="Contacted">Contactado</MenuItem>
+                      <MenuItem value="Qualified">Calificado</MenuItem>
+                      <MenuItem value="Not Qualified">No Calificado</MenuItem>
+                      <MenuItem value="In Progress">En Progreso</MenuItem>
+                      <MenuItem value="Closed/Won">Cerrado/Ganado</MenuItem>
+                      <MenuItem value="Closed/Lost">Cerrado/Perdido</MenuItem>
                       <MenuItem value="Follow-up Required">
-                        Follow-up Required
+                        Seguimiento Requerido
                       </MenuItem>
-                      <MenuItem value="On Hold"> On Hold</MenuItem>
-                      <MenuItem value="Converted"> Converted</MenuItem>
+                      <MenuItem value="On Hold">En Espera</MenuItem>
+                      <MenuItem value="Converted">Convertido</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
 
                 <Grid item xs={12} sm={4} md={4}>
                   <FormControl fullWidth>
-                    <FormLabel>Assigned Agent</FormLabel>
+                    <FormLabel>Agente Asignado</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="assigned_agent"
@@ -429,7 +429,7 @@ const Add = (props) => {
                 </Grid>
                 <Grid item xs={12} sm={4} md={4}>
                   <FormControl fullWidth>
-                    <FormLabel>Lead score or rating</FormLabel>
+                    <FormLabel>Puntuación o Rating</FormLabel>
                     <Typography display="flex">
                       <Rating name="leadScore" precision={0.1} onChange={(event, newValue) => formik.setFieldValue("leadScore", newValue)} />
                     </Typography>
@@ -440,7 +440,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Additional Contact Details
+                Detalles de Contacto
               </Typography>
               <Grid
                 container
@@ -448,7 +448,7 @@ const Add = (props) => {
                 columnSpacing={{ xs: 0, sm: 5, md: 4 }}
               >
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Alternate phone number</FormLabel>
+                  <FormLabel>Número de teléfono alternativo</FormLabel>
                   <TextField
                     id="alternatePhoneNumber"
                     name="alternatePhoneNumber"
@@ -467,7 +467,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Additional email address</FormLabel>
+                  <FormLabel>Correo electrónico adicional</FormLabel>
                   <TextField
                     id="additionalEmailAddress"
                     name="additionalEmailAddress"
@@ -486,7 +486,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Instagram profile</FormLabel>
+                  <FormLabel>Instagram</FormLabel>
                   <TextField
                     id="instagramProfile"
                     name="instagramProfile"
@@ -497,7 +497,7 @@ const Add = (props) => {
                   {formik.values.instagramProfile && <a href={`https://www.instagram.com/${formik.values.instagramProfile}`} target="_blank" rel="noreferrer">Link</a>}
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Twitter profile</FormLabel>
+                  <FormLabel>Twitter</FormLabel>
                   <TextField
                     id="twitterProfile"
                     name="twitterProfile"
@@ -512,7 +512,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Policy Requirements
+                Seguridad y Requisitos de Póliza
               </Typography>
               <Grid
                 container
@@ -521,7 +521,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Type of insurance</FormLabel>
+                    <FormLabel>Tipo de seguro</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="typeOfInsurance"
@@ -531,18 +531,18 @@ const Add = (props) => {
                       value={formik.values.typeOfInsurance}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="Auto">Auto Insurance</MenuItem>
-                      <MenuItem value="Home Insurance">Home Insurance</MenuItem>
+                      <MenuItem value="Auto">Seguro de Auto</MenuItem>
+                      <MenuItem value="Home Insurance">Seguro de Hogar</MenuItem>
                       <MenuItem value="Health Insurance">
-                        Health Insurance
+                        Seguro de Salud
                       </MenuItem>
-                      <MenuItem value="Life Insurance">Life Insurance</MenuItem>
+                      <MenuItem value="Life Insurance">Seguro de Vida</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Desired coverage amount</FormLabel>
+                    <FormLabel>Monto de cobertura deseado</FormLabel>
                     <OutlinedInput
                       id="desiredCoverageAmount"
                       name="desiredCoverageAmount"
@@ -558,7 +558,7 @@ const Add = (props) => {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
-                  <FormLabel>Specific policy features</FormLabel>
+                  <FormLabel>Características específicas</FormLabel>
                   <TextField
                     id="specificPolicyFeatures"
                     name="specificPolicyFeatures"
@@ -575,7 +575,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Lead Qualification
+                Cualificación de clientes potenciales
               </Typography>
               <Grid
                 container
@@ -584,7 +584,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={12}>
                   <FormControl fullWidth>
-                    <FormLabel>Qualification Status</FormLabel>
+                    <FormLabel>Estado de Cualificación</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="QualificationStatus"
@@ -594,8 +594,8 @@ const Add = (props) => {
                       value={formik.values.QualificationStatus}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="Qualified">Qualified</MenuItem>
-                      <MenuItem value="Not Qualified">Not Qualified</MenuItem>
+                      <MenuItem value="Qualified">Calificado</MenuItem>
+                      <MenuItem value="Not Qualified">No Calificado</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -605,7 +605,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Lead Conversion Information
+                Información conversión de clientes potenciales
               </Typography>
               <Grid
                 container
@@ -614,7 +614,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Policy Type</FormLabel>
+                    <FormLabel>Tipo de Póliza</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="policyType"
@@ -624,17 +624,17 @@ const Add = (props) => {
                       value={formik.values.policyType}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="Auto">Auto Insurance</MenuItem>
-                      <MenuItem value="Home Insurance">Home Insurance</MenuItem>
+                      <MenuItem value="Auto">Seguro de Auto</MenuItem>
+                      <MenuItem value="Home Insurance">Seguro de Hogar</MenuItem>
                       <MenuItem value="Health Insurance">
-                        Health Insurance
+                        Seguro de Salud     
                       </MenuItem>
-                      <MenuItem value="Life Insurance">Life Insurance</MenuItem>
+                      <MenuItem value="Life Insurance">Seguro de Vida</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Policy Number</FormLabel>
+                  <FormLabel>Número de Póliza</FormLabel>
                   <TextField
                     id="policyNumber"
                     name="policyNumber"
@@ -646,7 +646,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Start Date</FormLabel>
+                  <FormLabel>Fecha de Inicio</FormLabel>
                   <TextField
                     id="startDate"
                     name="startDate"
@@ -658,7 +658,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>End Date</FormLabel>
+                  <FormLabel>Fecha de Finalización</FormLabel>
                   <TextField
                     id="endDate"
                     name="endDate"
@@ -670,7 +670,7 @@ const Add = (props) => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Coverage Amount</FormLabel>
+                  <FormLabel>Monto de Cobertura</FormLabel>
                   <OutlinedInput
                     id="coverageAmount"
                     name="coverageAmount"
@@ -687,7 +687,7 @@ const Add = (props) => {
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Term Length</FormLabel>
+                    <FormLabel>Duración</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="termLength"
@@ -698,18 +698,18 @@ const Add = (props) => {
                       value={formik.values.termLength}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="1 year">1 year</MenuItem>
-                      <MenuItem value="2 years">2 years </MenuItem>
-                      <MenuItem value="5 years">5 years </MenuItem>
-                      <MenuItem value="10 years">10 years </MenuItem>
-                      <MenuItem value="15 years">15 years</MenuItem>
+                      <MenuItem value="1 year">1 año</MenuItem>
+                      <MenuItem value="2 years">2 años </MenuItem>
+                      <MenuItem value="5 years">5 años </MenuItem>
+                      <MenuItem value="10 years">10 años </MenuItem>
+                      <MenuItem value="15 years">15 años</MenuItem>
                     </Select>
                   </FormControl>
 
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Conversion Reason</FormLabel>
+                    <FormLabel>Razón de Conversión</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="conversionReason"
@@ -720,16 +720,16 @@ const Add = (props) => {
                       value={formik.values.conversionReason}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="Coverage Needs">Coverage Needs</MenuItem>
-                      <MenuItem value="Trust and Reputation">Trust and Reputation</MenuItem>
-                      <MenuItem value="Competitive Pricing"> Competitive Pricing</MenuItem>
-                      <MenuItem value="Excellent Customer Service">Excellent Customer Service</MenuItem>
-                      <MenuItem value="Referrals or Recommendations">Referrals or Recommendations</MenuItem>
+                      <MenuItem value="Coverage Needs">Necesidades de cobertura</MenuItem>
+                      <MenuItem value="Trust and Reputation">Confianza y Reputación</MenuItem>
+                      <MenuItem value="Competitive Pricing">Precios Competitivos</MenuItem>
+                      <MenuItem value="Excellent Customer Service">Excelente Servicio al Cliente</MenuItem>
+                      <MenuItem value="Referrals or Recommendations">Referencias o Recomendaciones</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
-                  <FormLabel>Conversion Date&Time</FormLabel>
+                  <FormLabel>Fecha y Hora de Conversión</FormLabel>
                   <TextField
                     id=""
                     name="conversionDateTime"
@@ -745,7 +745,7 @@ const Add = (props) => {
                 style={{ marginBottom: "15px", marginTop: "15px" }}
                 variant="h6"
               >
-                Lead Segmentation
+                Segmentación de Clientes
               </Typography>
               <Grid
                 container
@@ -754,7 +754,7 @@ const Add = (props) => {
               >
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Lead Category</FormLabel>
+                    <FormLabel>Categoría</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="leadCategory"
@@ -765,14 +765,14 @@ const Add = (props) => {
                       value={formik.values.leadCategory}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="Hot Lead">Hot Lead</MenuItem>
-                      <MenuItem value="Cold Lead">Cold Lead</MenuItem>
+                      <MenuItem value="Hot Lead">Cliente potencial activo</MenuItem>
+                      <MenuItem value="Cold Lead">Cliente potencial frío</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                   <FormControl fullWidth>
-                    <FormLabel>Lead Priority</FormLabel>
+                    <FormLabel>Prioridad de Cliente</FormLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="leadPriority"
@@ -783,9 +783,9 @@ const Add = (props) => {
                       value={formik.values.leadPriority}
                       onChange={formik.handleChange}
                     >
-                      <MenuItem value="High">High</MenuItem>
-                      <MenuItem value="Medium">Medium</MenuItem>
-                      <MenuItem value="Low">Low</MenuItem>
+                      <MenuItem value="High">Alta</MenuItem>
+                      <MenuItem value="Medium">Media</MenuItem>
+                      <MenuItem value="Low">Baja</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -794,11 +794,11 @@ const Add = (props) => {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={formik.handleSubmit} variant='contained' color='primary'>Save</Button>
+          <Button onClick={formik.handleSubmit} variant='contained' color='primary'>Guardar</Button>
           <Button onClick={() => {
             formik.resetForm()
             handleClose()
-          }} variant='outlined' color='error'>Cancle</Button>
+          }} variant='outlined' color='error'>Cancelar</Button>
         </DialogActions>
       </Dialog>
     </div>
